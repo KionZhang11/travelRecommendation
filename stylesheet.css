@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+}
+
+nav {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+#search-bar {
+  display: flex;
+  align-items: center;
+}
+
+#search-input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar-button{
+  padding: 8px 12px;
+  margin-right: 5px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.search-bar-button:hover {
+  background-color: #45a049;
+}
+
+.intro {
+    position: relative;
+    background-image: url('travelPhotoDesert.jpg');
+      background-size: cover;
+      background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.intro h1 {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.intro p {
+    font-size: 1.5em;
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+}
+
+.intro button {
+    background-color: #4dc8db;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.intro button:hover {
+    background-color: #44b1c2;
+}
