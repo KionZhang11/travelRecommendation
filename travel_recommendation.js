@@ -1,16 +1,14 @@
-// Fetch the data from the travel_recommendation_api.json file
 fetch('travel_recommendation_api.json')
-  .then(response => response.json()) // Convert the response to JSON format
-  .then(data => {
-    console.log(data); // Log the fetched data to the console to verify the result
-    
-    // Call the function to display recommendations
-    displayRecommendations(data);
-    
-    // Add an event listener for the search button
+  .then(response => response.json())
+  .then(data => {        
     document.getElementById('search-button').addEventListener('click', function() {
       const searchTerm = document.getElementById('search-input').value.toLowerCase();
       searchResults(data, searchTerm);
+      displayRecommendations(data);
+
+    });
+    document.getElementById('clear-button').addEventListener('click', function() {
+      clearResults();
     });
   })
   .catch(error => {
@@ -19,7 +17,6 @@ fetch('travel_recommendation_api.json')
 
 // Function to display recommendations (default display)
 function displayRecommendations(data) {
-  // Display countries and cities
   const countriesDiv = document.getElementById('countries-list');
   data.countries.forEach(country => {
     const countryDiv = document.createElement('div');
@@ -61,34 +58,36 @@ function displayRecommendations(data) {
 
 // Function to filter and display search results based on the search term
 function searchResults(data, searchTerm) {
-  // Clear previous search results
+  document.getElementById('countries').style.display = 'none';
+  document.getElementById('temples').style.display = 'none';
+  document.getElementById('beaches').style.display = 'none';
+  
   document.getElementById('countries-list').innerHTML = '';
   document.getElementById('temples-list').innerHTML = '';
   document.getElementById('beaches-list').innerHTML = '';
 
-  // Filter countries
   const filteredCountries = data.countries.filter(country =>
     country.name.toLowerCase().includes(searchTerm) ||
     country.cities.some(city => city.name.toLowerCase().includes(searchTerm))
   );
 
-  // Filter temples
   const filteredTemples = data.temples.filter(temple =>
     temple.name.toLowerCase().includes(searchTerm)
   );
 
-  // Filter beaches
   const filteredBeaches = data.beaches.filter(beach =>
     beach.name.toLowerCase().includes(searchTerm)
   );
 
-  // Display filtered results for countries, temples, and beaches
   if (searchTerm.includes('beach')) {
     displayFilteredResults('beaches-list', filteredBeaches, 'beach');
+    document.getElementById('beaches').style.display = 'block'; // Show beach section
   } else if (searchTerm.includes('temple')) {
     displayFilteredResults('temples-list', filteredTemples, 'temple');
+    document.getElementById('temples').style.display = 'block'; // Show temple section
   } else if (searchTerm.includes('country')) {
     displayFilteredResults('countries-list', filteredCountries, 'country');
+    document.getElementById('countries').style.display = 'block'; // Show country section
   }
 }
 
@@ -105,4 +104,17 @@ function displayFilteredResults(sectionId, filteredData, type) {
     `;
     sectionDiv.appendChild(itemDiv);
   });
+}
+
+// Function to clear all results
+function clearResults() {
+  document.getElementById('search-input').value = '';
+
+  document.getElementById('countries-list').innerHTML = '';
+  document.getElementById('temples-list').innerHTML = '';
+  document.getElementById('beaches-list').innerHTML = '';
+
+  document.getElementById('countries').style.display = 'none';
+  document.getElementById('temples').style.display = 'none';
+  document.getElementById('beaches').style.display = 'none';
 }

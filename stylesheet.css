@@ -62,6 +62,84 @@ nav ul li a:hover {
   background-color: #45a049;
 }
 
+#countries-list, #temples-list, #beaches-list {
+  position: absolute;
+  top: 80px; /* Positioned just below the search bar */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-height: 400px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#countries-list > div, #temples-list > div, #beaches-list > div {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+#countries-list > div:hover, #temples-list > div:hover, #beaches-list > div:hover {
+  background-color: #f1f1f1;
+}
+
+/* Styling for the image */
+#countries-list img, #temples-list img, #beaches-list img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Title and Description */
+#countries-list h3, #temples-list h3, #beaches-list h3 {
+  font-size: 1.5em;
+  margin: 10px 0;
+  color: #007b5e;
+}
+
+#countries-list p, #temples-list p, #beaches-list p {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* "Visit" button at the bottom */
+#countries-list button, #temples-list button, #beaches-list button {
+  background-color: #007b5e;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#countries-list button:hover, #temples-list button:hover, #beaches-list button:hover {
+  background-color: #005f46;
+}
+
+
+
 .intro {
     position: relative;
     background-image: url('travelPhotoDesert.jpg');

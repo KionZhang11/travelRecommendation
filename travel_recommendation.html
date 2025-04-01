@@ -17,7 +17,7 @@
     <div id="search-bar">
       <input type="text" id="search-input" placeholder="Search for recommendations..." />
       <button class="search-bar-button" id="search-button">Search</button>
-      <button class="search-bar-button" id="reset-button">Reset</button>
+      <button class="search-bar-button" id="clear-button">clear</button>
     </div>
   </nav>
 
@@ -28,6 +28,25 @@
     </p>
     <button>BOOK NOW</button>
   </section>
+  <main>
+    <!-- Section for countries and cities -->
+    <section id="countries" style="display:none;">
+      <h2>Countries and Cities</h2>
+      <div id="countries-list"></div> <!-- Container for country results -->
+    </section>
+
+    <!-- Section for temples -->
+    <section id="temples" style="display:none;">
+      <h2>Famous Temples</h2>
+      <div id="temples-list"></div> <!-- Container for temple results -->
+    </section>
+
+    <!-- Section for beaches -->
+    <section id="beaches" style="display:none;">
+      <h2>Beautiful Beaches</h2>
+      <div id="beaches-list"></div> <!-- Container for beach results -->
+    </section>
+  </main>
 
   <script src="travel_recommendation.js"></script>
 </body>
